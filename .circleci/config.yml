@@ -39,34 +39,6 @@ commands:
               npm run migrations:revert
             fi
 
-  scan-frontend:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - restore_cache:
-          keys: [FE-build]
-      - run:
-          name: Scan Frontend
-          command: |
-            cd frontend
-            npm install
-            npm audit --audit-level=critical
-
-  scan-backend:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - checkout
-      - restore_cache:
-          keys: [BE-build]
-      - run:
-          name: Scan Backend
-          command: |
-            cd backend
-            npm install
-            npm audit --audit-level=critical
-
 jobs:
   build-frontend:
     docker:
@@ -144,6 +116,34 @@ jobs:
             cd backend
             npm install
             npm run test
+
+  scan-frontend:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys: [FE-build]
+      - run:
+          name: Scan Frontend
+          command: |
+            cd frontend
+            npm install
+            npm audit --audit-level=critical
+
+  scan-backend:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys: [BE-build]
+      - run:
+          name: Scan Backend
+          command: |
+            cd backend
+            npm install
+            npm audit --audit-level=critical
 
 workflows:
   default:
