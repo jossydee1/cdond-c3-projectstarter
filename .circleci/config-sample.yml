@@ -247,7 +247,7 @@ cleanup:
     docker:
       # Docker image here
     steps:
-      # Checkout code from git 
+      # Checkout code from git
       - run:
           name: Get old stack workflow id
           command: |
