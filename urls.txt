@@ -1,2 +1,2 @@
 URL01: https://github.com/jossydee1/cdond-c3-projectstarter
-URL02: 
+URL02: http://udapeople-cb184aa.s3-website-us-east-1.amazonaws.com
